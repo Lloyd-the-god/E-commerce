@@ -13,7 +13,9 @@ function App() {
     dispatch(getPosts());
   }, [])
 
-  
+  if(loading) {
+    return <h2>Loading....</h2>;
+  }
 
   return (
     <div className='App'>
@@ -31,7 +33,7 @@ function App() {
               </thead>
        
               <tbody>
-              { posts.states.map((item, idx) => (
+              { posts.states?.map((item, idx) => (
                 <tr key={idx}> 
                   <td>{item.state}</td>
                   <td>{item._id}</td>
